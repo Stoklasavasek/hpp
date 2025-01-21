@@ -51,13 +51,16 @@ class FormPerson(FlaskForm):
 def formular():
     form = FormPerson()
     if form.validate_on_submit():
-        # Save records to the database
         new_person = Person(name=form.name.data, surname=form.surname.data, email=form.email.data)
         db.add(new_person)
         db.commit()
-        return "Record saved to database"
+        return redirect(url_for('routes.success'))
     else:
         return render_template("formularPerson.html", form=form)
+    
+@bp.route("/success", methods=["GET", "POST"])
+def success():
+    return render_template("index.html", welcome_message="Welcome to Flask for", content_message="Rcord saved to database")
 
 
 @bp.route("/persons", methods=["GET", "POST"])
@@ -88,7 +91,11 @@ bp.register_error_handler(404, error_views.not_found_error)
 bp.register_error_handler(500, error_views.internal_error)
 
 # Public views
-bp.add_url_rule("/", view_func=static_views.index)
+@bp.route("/", methods=["GET", "POST"])
+def index():
+    welcome_message = "Welcome to Flask for Startups"
+    content_message = "Content goes here..."
+    return render_template('index.html', welcome_message=welcome_message, content_message=content_message)
 
 bp.add_url_rule("/register", view_func=static_views.register)
 
