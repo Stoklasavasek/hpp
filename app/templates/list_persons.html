@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}List of Persons{% endblock %}
+
+{% block content %}
+<section>
+    <form method="POST" action="{{ url_for('routes.list_persons') }}">
+        <table>
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for person in persons %}
+                <tr onclick="toggleCheckbox(this);">
+                    <td><input type="checkbox" name="selected_ids" value="{{ person.person_id }}" onclick="event.stopPropagation();"></td>
+                    <td>{{ person.name }}</td>
+                    <td>{{ person.surname }}</td>
+                    <td>{{ person.email }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="button-container">
+            <button type="submit">Delete Selected</button>
+        </div>
+    </form>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    function toggleCheckbox(row) {
+        const checkbox = row.querySelector('input[type="checkbox"]');
+        checkbox.checked = !checkbox.checked;
+    }
+</script>
+{% endblock %}

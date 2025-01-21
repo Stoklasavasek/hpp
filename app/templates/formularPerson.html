@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Create Users{% endblock %}
+
+{% block content %}
+<section>
+    <h2>About Us</h2>
+    <p>We are a startup focused on delivering innovative solutions to our clients.</p>
+</section>
+<section>
+    <h2>Create User</h2>
+    {% from "macros/fields.tmpl" import render_input_field, render_submit %}
+    <h3>insert</h3>
+    <form method="POST" id='insert-form'>
+        {{ form.hidden_tag() }}
+        {{ render_input_field(form.name) }}
+        {{ render_input_field(form.surname) }}
+        {{ render_input_field(form.email) }}
+        {{ render_submit() }}
+    </form>
+</section>
+{% endblock %}
