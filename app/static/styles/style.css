@@ -3,16 +3,16 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #e8f5e9;
+    background-color: #e8f5e9; /* Světle zelená */
 }
 header {
-    background-color: #333;
+    background-color: #2e7d32; /* Tmavě zelená */
     color: #fff;
     padding: 1rem 0;
     text-align: center;
 }
 nav {
-    background-color: #444;
+    background-color: #388e3c; /* Středně zelená */
     overflow: hidden;
 }
 nav a {
@@ -24,7 +24,7 @@ nav a {
     text-decoration: none;
 }
 nav a:hover {
-    background-color: #555;
+    background-color: #4caf50; /* Světlejší zelená */
 }
 main {
     padding: 2rem;
@@ -43,11 +43,11 @@ table {
 }
 th, td {
     padding: 0.5rem;
-    border: 1px solid #ccc;
+    border: 1px solid #c8e6c9; /* Světle zelené rámečky */
     text-align: left;
 }
 th {
-    background-color: #333;
+    background-color: #2e7d32; /* Tmavě zelená */
     color: #fff;
 }
 .button-container {
@@ -56,17 +56,17 @@ th {
 }
 button {
     padding: 0.7rem;
-    background-color: #333;
+    background-color: #2e7d32; /* Tmavě zelená */
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 button:hover {
-    background-color: #555;
+    background-color: #4caf50; /* Světlejší zelená */
 }
 footer {
-    background-color: #333;
+    background-color: #2e7d32; /* Tmavě zelená */
     color: #fff;
     text-align: center;
     padding: 1rem 0;
